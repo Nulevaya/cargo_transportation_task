@@ -1,0 +1,30 @@
+html
+  head
+    title Список грузов
+  body
+  h1.mb-4 История расчётов:
+  div.container-fluid
+    table.table.table-hover.table-bordered
+      thead.thead-dark
+        tr
+          th ID
+          th Длина
+          th Ширина
+          th Высота
+          th Объём
+          th Вес
+          th Город отправления
+          th Город доставки
+          th Стоимость доставки
+      -@cargos.each do |cargo|
+        tbody
+          tr
+            td =cargo.id
+            td =cargo.length
+            td =cargo.width
+            td =cargo.height
+            td =cargo.total_volume
+            td =cargo.total_weight
+            td =cargo.departure_city.name
+            td =cargo.delivery_city.name
+            td =cargo.price

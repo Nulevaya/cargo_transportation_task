@@ -1,0 +1,13 @@
+.card-container
+  .card
+    h4.card-header Информация о заявке №#{@cargo.id}
+    .card-body
+      h5.card-title Стоимость отправки: #{@cargo.price} рублей
+      p.card-text Длина: #{@cargo.length} м 
+      p.card-text Ширина: #{@cargo.width} м
+      p.card-text Высота: #{@cargo.height} м
+      p.card-text Объём: #{@cargo.total_volume} м3
+      p.card-text Вес: #{@cargo.total_weight} кг
+      p.card-text Город отправления: #{@cargo.departure_city.name}
+      p.card-text Город доставки: #{@cargo.delivery_city.name}
+      =link_to 'На главную', new_cargo_path, class: 'btn btn-primary'

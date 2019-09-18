@@ -1,0 +1,33 @@
+= simple_form_for @cargo,
+  html: { class: 'form-horizontal inputs-sm input-form' } do |f|
+
+  .input-group.mb-3
+    span class='input-group-text' Длина
+    = f.input :length, required: true, label: false, input_html: { class: 'form-control' }
+
+  .input-group.mb-3
+    span class='input-group-text' Ширина
+    = f.input :width, label: false, required: true, input_html: { class: 'form-control' }
+
+  .input-group.mb-3
+    span class='input-group-text' Высота
+    = f.input :height, label: false, required: true, input_html: { class: 'form-control' }
+
+  .input-group.mb-3
+    span class='input-group-text' Объём
+    = f.input :total_volume, label: false, required: true, input_html: { class: 'form-control' }
+
+  .input-group.mb-3
+    span class='input-group-text' Вес
+    = f.input :total_weight, label: false, required: true, input_html: { class: 'form-control' }
+
+  .input-group.mb-3
+    span class='input-group-text' Город отправления
+    = f.association :departure_city, label: false, input_html: { class: 'custom-select' }
+
+  .input-group.mb-3
+    span class='input-group-text' Город доставки
+    = f.association :delivery_city, label: false, input_html: { class: 'custom-select' }
+  .row
+    .col-sm-offset-3.col-sm-9
+      = f.button :submit, class: 'btn btn-primary', value: 'Рассчитать'

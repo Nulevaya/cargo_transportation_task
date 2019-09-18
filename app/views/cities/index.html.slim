@@ -1,0 +1,16 @@
+html
+  head
+    title Статистика
+  body
+  h1.mb-4 Топ-3 города отправки по популярности:
+  div.container-fluid.col-8
+    table.table.table-hover.table-bordered
+      thead.thead-light
+        tr
+          th ID
+          th Название города
+      -@cities.each do |city|
+        tbody
+          tr
+            td =city.id
+            td =city.name

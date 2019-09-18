@@ -1,0 +1,28 @@
+doctype html
+html lang="en"
+  head
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    title
+      = @head_title or "Cargo transportation"
+    = yield(:head)
+    = csrf_meta_tags
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+
+  body
+    .navbar.navbar-expand-lg.navbar-light.bg-light
+      .collapse.navbar-collapse
+        .navbar-nav.nav-item.nav-link =link_to 'Расчёт стоимости доставки', new_cargo_path
+        .navbar-nav.nav-item.nav-link =link_to 'История', cargos_path
+        .navbar-nav.nav-item.nav-link =link_to 'Статистика', cities_path
+        
+    .container-fluid.mt-3      
+      .row
+        .col-sm-12
+          - unless flash.blank?
+            = raw flash_messages
+
+      .row
+        = yield
